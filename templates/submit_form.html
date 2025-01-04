@@ -26,7 +26,7 @@
                     <a class="nav-link" href="page2">Connectée à base de données locale</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="submit_form">Submit Data</a>
+                    <a class="nav-link" href="submit_form">Submit Data to Firebase</a>
                 </li>
             </ul>
         </div>
@@ -52,9 +52,24 @@
         </form>
     </div>
 
-    <div id="popup" style="display:none;">
-        <p id="popupMessage"></p>
-        <button onclick="closePopup()">Close</button>
+    <!-- Add Bootstrap Modal -->
+    <div class="modal fade" id="popup" tabindex="-1" role="dialog" aria-labelledby="popupLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="popupLabel">Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="popupMessage">
+            <!-- Message will be inserted here -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -67,14 +82,14 @@
                     data: $(this).serialize(),
                     success: function(response) {
                         $('#popupMessage').text(response.message);
-                        $('#popup').show();
+                        $('#popup').modal('show');
                     }
                 });
             });
         });
 
         function closePopup() {
-            $('#popup').hide();
+            $('#popup').modal('hide');
         }
     </script>
 
