@@ -65,17 +65,30 @@ OR
 ## Screenshots
 
 ### Home Page
-![Home Page](screenshots/home_page.png)
+![Home Page](screenshots/home.jpeg)
 
 ### Page 1 - Firebase Data
-![Page 1](screenshots/page1.png)
+![Page 1](screenshots/firebase_db.jpeg)
 
 ### Page 2 - Local Database Data
-![Page 2](screenshots/page2.png)
+![Page 2](screenshots/local_db.jpeg)
 
 ### Submit Data to Firebase
-![Submit Form](screenshots/submit_form.png)
+![Submit Form](screenshots/put_data_to_firebase.jpeg)
 
 ### Submit Data to SQLite
-![Submit SQLite](screenshots/submit_sqlite.png)
+![Submit SQLite](screenshots/put_data_to_local_db.jpeg)
+### Popup for Sensor Data
+![Popup](screenshots/popup.jpeg)
 
+### LED State Update off
+![LED State](screenshots/led_stat_popup_off.png)
+
+### LED State Update on
+![LED State](screenshots/led_stat_popup_on.png)
+
+### Firebase Realtime
+![Firebase Realtime](screenshots/firebase_realtimedatabase.jpeg)
+
+### SQLite Tables
+![SQLite Tables](screenshots/sqllite_tables.png)
