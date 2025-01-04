@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">IoT Platform</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-link">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="page1">Connectée à Firebase</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="page2">Connectée à base de données locale</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="submit_form">Submit Data</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Form to submit sensor data -->
+    <div class="container mt-5">
+        <h2>Submit Sensor Data</h2>
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="temperature">Temperature</label>
+                <input type="text" class="form-control" id="temperature" name="temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity</label>
+                <input type="text" class="form-control" id="humidity" name="humidity" required>
+            </div>
+            <div class="form-group">
+                <label for="gas">Gas</label>
+                <input type="text" class="form-control" id="gas" name="gas" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div id="popup" style="display:none;">
+        <p id="popupMessage"></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataForm').on('submit', function(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '/submit_form',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#popupMessage').text(response.message);
+                        $('#popup').show();
+                    }
+                });
+            });
+        });
+
+        function closePopup() {
+            $('#popup').hide();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

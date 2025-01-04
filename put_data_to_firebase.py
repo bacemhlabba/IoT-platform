@@ -13,7 +13,7 @@ firebase_admin.initialize_app(cred, {
 
 # Generate dynamic image
 temperature = 25
-humidity = 60
+humidity = 80
 gas = 'normal'
 
 # Create a half-circle plot
