@@ -1,3 +1,4 @@
+// filepath: /workspaces/IoT-platform/static/js/page2.js
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('button[onclick="updateLED(1)"]').addEventListener('click', function() {
         updateLED(1);
@@ -20,12 +21,13 @@ function updateLED(state) {
     .then(data => {
         if (data.status === 'success') {
             alert('LED state updated successfully');
+            document.querySelector('#led-state').textContent = state === 1 ? 'ON' : 'OFF';
         } else {
             alert('Failed to update LED state');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred while updating LED state');
+        alert('Failed to update LED state');
     });
 }

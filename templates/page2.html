@@ -8,6 +8,26 @@
     <script src="{{ url_for('static', filename='js/page2.js') }}"></script>
 </head>
 <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">IoT Platform</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-link">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="page1">Page 1</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="page2">Page 2</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     <div class="container mt-5">
         <h1 class="text-center">Sensor Data from Local Database</h1>
         <div class="mt-4">
@@ -40,7 +60,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">LED State</h5>
-                            <p class="card-text">{{ data.led }}</p>
+                            <p class="card-text" id="led-state">{{ data.led }}</p>
                         </div>
                     </div>
                 </div>
