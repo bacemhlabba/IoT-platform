@@ -7,6 +7,7 @@ import base64
 import matplotlib.pyplot as plt
 import numpy as np
 import io
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -25,7 +26,7 @@ def get_db():
     return conn
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
 @app.route('/page1')
@@ -140,6 +141,25 @@ def submit_form():
         return jsonify({'status': 'success', 'message': 'Data submitted successfully'})
 
     return render_template('submit_form.html')
+
+@app.route('/submit_sqlite', methods=['GET'])
+def render_submit_sqlite():
+    return render_template('submit_sqlite.html')
+
+@app.route('/submit_sqlite', methods=['POST'])
+def handle_submit_sqlite():
+    temperature = request.form['temperature']
+    humidity = request.form['humidity']
+    timestamp = request.form['timestamp']
+
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("INSERT INTO sensor_data (temperature, humidity, gas, led, timestamp) VALUES (?, ?, ?, ?, ?)",
+                (temperature, humidity, 'Normal', 'OFF', timestamp))
+    conn.commit()
+    conn.close()
+
+    return jsonify({'message': 'Data submitted successfully'})
 
 if __name__ == '__main__':
     app.run(debug=True)
