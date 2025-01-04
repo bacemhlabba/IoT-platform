@@ -2,13 +2,26 @@ import sqlite3
 
 DATABASE = 'local_database.db'
 
-def migrate():
+def create_table():
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    # Add the timestamp column to the sensor_data table
-    cur.execute("ALTER TABLE sensor_data ADD COLUMN timestamp TEXT")
+    cur.execute('''CREATE TABLE IF NOT EXISTS sensor_data (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    temperature TEXT,
+                    humidity TEXT,
+                    gas TEXT,
+                    led TEXT,
+                    timestamp TEXT)''')
+    conn.commit()
+    conn.close()
+
+def insert_data():
+    conn = sqlite3.connect(DATABASE)
+    cur = conn.cursor()
+    cur.execute("INSERT INTO sensor_data (temperature, humidity, gas, led) VALUES ('25', '60', 'Normal', 'OFF')")
     conn.commit()
     conn.close()
 
 if __name__ == '__main__':
-    migrate()
+    create_table()
+    insert_data()

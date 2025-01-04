@@ -8,7 +8,7 @@ This repository contains a Flask project that serves web pages to display sensor
 
 1. Clone the repository:
     ```bash
-    git clonehttps://github.com/bacemhlabba/IoT-platform.git
+    git clone https://github.com/bacemhlabba/IoT-platform.git
     cd IoT-platform
     ```
 
@@ -34,9 +34,9 @@ This repository contains a Flask project that serves web pages to display sensor
 
 2. Add a new web app to the project and follow the instructions to register the app.
 
-3. Download the  file from the Firebase Console and place it in the root directory of the project.
+3. Download the `firebase.json` file from the Firebase Console and place it in the root directory of the project.
 
-4. Update the  file with the Firebase configuration details.
+4. Update the file with the Firebase configuration details.
 
 ### 3. Set up the local database
 
@@ -52,7 +52,8 @@ This repository contains a Flask project that serves web pages to display sensor
         temperature TEXT,
         humidity TEXT,
         gas TEXT,
-        led TEXT
+        led TEXT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
     );
     ```
 
@@ -78,3 +79,21 @@ This repository contains a Flask project that serves web pages to display sensor
 3. Open a web browser and go to `http://127.0.0.1:5000/` to access the index page.
 
 4. Use the navigation links to go to Page 1 and Page 2 to view the sensor data and update the LED state.
+
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/home_page.png)
+
+### Page 1 - Firebase Data
+![Page 1](screenshots/page1.png)
+
+### Page 2 - Local Database Data
+![Page 2](screenshots/page2.png)
+
+### Submit Data to Firebase
+![Submit Form](screenshots/submit_form.png)
+
+### Submit Data to SQLite
+![Submit SQLite](screenshots/submit_sqlite.png)
+
