@@ -150,12 +150,13 @@ def render_submit_sqlite():
 def handle_submit_sqlite():
     temperature = request.form['temperature']
     humidity = request.form['humidity']
+    gas = request.form['gas']
     timestamp = request.form['timestamp']
 
     conn = get_db()
     cur = conn.cursor()
     cur.execute("INSERT INTO sensor_data (temperature, humidity, gas, led, timestamp) VALUES (?, ?, ?, ?, ?)",
-                (temperature, humidity, 'Normal', 'OFF', timestamp))
+                (temperature, humidity, gas, 'OFF', timestamp))
     conn.commit()
     conn.close()
 
