@@ -86,3 +86,5 @@ __pycache__/
 __pycache__
 node_modules/
 venv/
+venv/lib/python3.12/site-packages/pip/_internal/commands/__pycache__/freeze.cpython-312.pyc
+venv/lib/python3.12/site-packages/pip/_internal/operations/__pycache__/freeze.cpython-312.pyc
