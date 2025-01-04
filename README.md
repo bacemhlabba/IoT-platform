@@ -8,8 +8,8 @@ This repository contains a Flask project that serves web pages to display sensor
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/githubnext/workspace-blank.git
-    cd workspace-blank
+    git clone [https://github.com/githubnext/workspace-blank.git](https://github.com/bacemhlabba/IoT-platform.git)
+    cd IoT-platform
     ```
 
 2. Create a virtual environment and activate it:
