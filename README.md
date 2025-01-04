@@ -40,33 +40,15 @@ This repository contains a Flask project that serves web pages to display sensor
 
 ### 3. Set up the local database
 
-1. Create a new SQLite database file:
+1. Run the migration script to create the `sensor_data` table and insert initial data:
     ```bash
-    sqlite3 local_database.db
+    python3 migrate.py
     ```
+OR 
 
-2. Create the `sensor_data` table with the following fields:
-    ```sql
-    CREATE TABLE sensor_data (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        temperature TEXT,
-        humidity TEXT,
-        gas TEXT,
-        led TEXT,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-    ```
-
-3. Insert some initial data into the `sensor_data` table:
-    ```sql
-    INSERT INTO sensor_data (temperature, humidity, gas, led) VALUES ('25', '60', 'Normal', 'OFF');
-    ```
-
-4. Close the SQLite database:
-    ```bash
-    .exit
-    ```
-
+ ```bash
+    ./run.sh
+```
 ## Running the App
 
 1. Make sure the virtual environment is activated and the required dependencies are installed.
