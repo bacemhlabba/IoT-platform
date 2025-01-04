@@ -83,4 +83,6 @@ __pycache__/
 *.njsproj
 *.sln
 *.sw?
-
+__pycache__
+node_modules/
+venv/
