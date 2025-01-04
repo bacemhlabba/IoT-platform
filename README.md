@@ -34,9 +34,9 @@ This repository contains a Flask project that serves web pages to display sensor
 
 2. Add a new web app to the project and follow the instructions to register the app.
 
-3. Download the `credentials.json` file from the Firebase Console and place it in the root directory of the project.
+3. Download the  file from the Firebase Console and place it in the root directory of the project.
 
-4. Update the `firebase_config.py` file with the Firebase configuration details.
+4. Update the  file with the Firebase configuration details.
 
 ### 3. Set up the local database
 
