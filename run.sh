@@ -7,10 +7,10 @@ export FLASK_DEBUG=0
 export FLASK_RUN_PORT=5000
 
 # Activate the virtual environment
-source venv/bin/activate
+. venv/bin/activate
 
 # Run database migrations
 python migrate.py
 
 # Run Flask
-venv/bin/flask run
+flask run --host=0.0.0.0
