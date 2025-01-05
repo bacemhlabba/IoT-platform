@@ -49,6 +49,18 @@ OR
  ```bash
     ./run.sh
 ```
+
+### 4. Using Docker Compose
+
+1. Make sure Docker and Docker Compose are installed on your machine.
+
+2. Build and start the containers:
+    ```bash
+    docker-compose up --build
+    ```
+
+3. Open a web browser and go to `http://127.0.0.1:5000/` to access the index page.
+
 ## Running the App
 
 1. Make sure the virtual environment is activated and the required dependencies are installed.
@@ -61,6 +73,49 @@ OR
 3. Open a web browser and go to `http://127.0.0.1:5000/` to access the index page.
 
 4. Use the navigation links to go to Page 1 and Page 2 to view the sensor data and update the LED state.
+
+## Project Structure
+
+```
+IoT-platform/
+├── app/
+│   ├── static/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── routes.py
+│   └── models.py
+├── migrations/
+├── screenshots/
+├── venv/
+├── .gitignore
+├── docker-compose.yml
+├── Dockerfile
+├── firebase.json
+├── migrate.py
+├── README.md
+├── requirements.txt
+└── run.sh
+```
+
+## Technologies Used
+
+- Python
+- Flask
+- Firebase
+- SQLite
+- Docker
+- Docker Compose
+- HTML/CSS
+- JavaScript
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
 ## Screenshots
 
@@ -78,6 +133,7 @@ OR
 
 ### Submit Data to SQLite
 ![Submit SQLite](screenshots/put_data_to_local_db.jpeg)
+
 ### Popup for Sensor Data
 ![Popup](screenshots/popup.jpeg)
 
