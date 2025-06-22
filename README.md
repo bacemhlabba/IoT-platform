@@ -74,6 +74,15 @@ OR
 
 4. Use the navigation links to go to Page 1 and Page 2 to view the sensor data and update the LED state.
 
+## Running Tests
+
+After installing the dependencies, run the test suite using `pytest`:
+
+```bash
+pytest
+```
+
+
 ## Project Structure
 
 ```
