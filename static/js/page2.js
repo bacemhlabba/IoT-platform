@@ -1,4 +1,4 @@
-// filepath: /workspaces/IoT-platform/static/js/page2.js
+// Handles LED state updates on Page 2
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('button[onclick="updateLED(1)"]').addEventListener('click', function() {
         updateLED(1);
