@@ -45,6 +45,7 @@ def page2():
     cur = conn.cursor()
     cur.execute("SELECT * FROM sensor_data ORDER BY id DESC LIMIT 1")
     row = cur.fetchone()
+    conn.close()
     if row is None:
         data = {'temperature': 'N/A', 'humidity': 'N/A', 'gas': 'N/A', 'led': 'N/A'}
     else:
@@ -63,8 +64,12 @@ def update_led():
     led_state = request.json.get('led_state')
     conn = get_db()
     cur = conn.cursor()
-    cur.execute("UPDATE sensor_data SET led = ? WHERE id = (SELECT MAX(id) FROM sensor_data)", (led_state,))
+    cur.execute(
+        "UPDATE sensor_data SET led = ? WHERE id = (SELECT MAX(id) FROM sensor_data)",
+        (led_state,)
+    )
     conn.commit()
+    conn.close()
     return jsonify({'status': 'success'})
 
 @app.route('/submit_data', methods=['POST'])
